@@ -17,13 +17,7 @@ function setup() {
     /* size */
     h = floor(height / rows);
     w = floor(width / cols);
-
-    /* Colors */
-    r = random(0, 255);
-    g = random(0, 255);
-    b = random(0, 255);
-    hue = random(0, 255);
-
+    
     /* Create array of nodes */
     nodes = new Array(cols);
     for (let i = 0; i < nodes.length; i++) {
