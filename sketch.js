@@ -2,8 +2,8 @@
 
 let rows = 100;
 let cols = 100;
-let h = 0;
-let w = 0;
+let y = 0;
+let x = 0;
 let nodes;
 
 let startNode;
@@ -15,15 +15,15 @@ function setup() {
     background(0);
 
     /* size */
-    h = floor(height / rows);
-    w = floor(width / cols);
+    x = floor(width / cols);
+    y = floor(height / rows);
     
     /* Create array of nodes */
-    nodes = new Array(cols);
+    nodes = new Array(rows);
     for (let i = 0; i < nodes.length; i++) {
-        nodes[i] = new Array(rows);
+        nodes[i] = new Array(cols);
         for (let j = 0; j < nodes[i].length; j++) {
-            nodes[i][j] = new Node(w * i, h * j, h, w);
+            nodes[i][j] = new Node(x * i, y * j, y, x);
 
             /* Set baudrier color */
             if (i == 0 || j == 0 || i == nodes.length -1 || j == nodes[i].length - 1) {
@@ -38,6 +38,9 @@ function setup() {
     endNode = nodes[cols-1][floor(random(1, rows))];
     startNode.setColor(color(104, 109, 224));
     endNode.setColor(color(149, 175, 192));
+
+    /* Debug porpuses */
+    noLoop();
 }
 
 function draw() {
