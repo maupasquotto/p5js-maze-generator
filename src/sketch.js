@@ -1,18 +1,22 @@
 /* https://en.wikipedia.org/wiki/Maze_generation_algorithm */
 
-let rows = 100;
-let cols = 100;
+let rows = 20;
+let cols = 20;
 let y = 0;
 let x = 0;
 let nodes;
+
+var xSize = 700;
+var ySize = 700;
 
 let startNode;
 let endNode;
 
 function setup() {
     /* Canvas */
-    createCanvas(900, 900);
-    background(0);
+    var canvas = createCanvas(xSize, ySize);
+    canvas.parent('mainCanvas');
+    background(255);
 
     /* size */
     x = floor(width / cols);
@@ -25,10 +29,10 @@ function setup() {
         for (let j = 0; j < nodes[i].length; j++) {
             nodes[i][j] = new Node(x * i, y * j, y, x);
 
-            /* Set baudrier color */
-            if (i == 0 || j == 0 || i == nodes.length -1 || j == nodes[i].length - 1) {
-                nodes[i][j].setColor(color(19, 15, 64));
-            }
+            // /* Set baudrier color */
+            // if (i == 0 || j == 0 || i == nodes.length -1 || j == nodes[i].length - 1) {
+            //     nodes[i][j].setColor(color(19, 15, 64));
+            // }
         }
     }
 
@@ -41,6 +45,10 @@ function setup() {
 
     /* Debug porpuses */
     noLoop();
+}
+
+function createMaze(currentNode) {
+    
 }
 
 function draw() {
